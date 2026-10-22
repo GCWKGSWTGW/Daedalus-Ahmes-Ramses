@@ -1,0 +1,34 @@
+org 128
+INI:  DB 150
+N:    DB 5
+ZERO: DB 0
+UM:   DB 1
+
+org 150
+    DB 1
+    DB 2
+    DB 3
+    DB 4
+    DB 5
+    DB 6
+    DB 7
+    DB 8
+
+org 0
+    LDA N
+    JZ FIM
+    LDA INI
+    STA PTR
+LACO:
+    LDA ZERO
+    DB 16          ; opcode de STA
+PTR: DB 0          ; endereço do STA (alterado em execução)
+    LDA PTR
+    ADD UM
+    STA PTR
+    LDA N
+    SUB UM
+    STA N
+    JNZ LACO
+FIM:
+    HLT

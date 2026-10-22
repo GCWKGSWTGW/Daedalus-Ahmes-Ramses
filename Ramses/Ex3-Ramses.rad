@@ -1,0 +1,27 @@
+org 128
+INI: DB 150
+N:   DB 5
+
+org 150
+    DB 1
+    DB 2
+    DB 3
+    DB 4
+    DB 5
+    DB 6
+    DB 7
+    DB 8
+
+org 0
+    LDR X INI
+    LDR B N
+    JZ FIM
+    LDR A #0
+LACO:
+    STR A 0,X
+    ADD X #1
+    SUB B #1
+    JZ FIM
+    JMP LACO
+FIM:
+    HLT

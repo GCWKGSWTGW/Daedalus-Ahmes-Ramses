@@ -1,0 +1,16 @@
+org 128
+VAR1: DB 5
+VAR2: DB 9
+ZERO: DB 0
+
+org 0
+    LDA VAR1
+ZERA_AC:
+    LDA ZERO
+ZERA_V1:
+    LDA ZERO
+    STA VAR1
+ZERA_V2:
+    LDA ZERO
+    STA VAR2
+    HLT

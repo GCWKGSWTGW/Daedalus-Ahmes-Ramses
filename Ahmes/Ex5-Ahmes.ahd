@@ -1,0 +1,43 @@
+org 128
+NB:     DB 3
+C2B:    DB 0
+SMB:    DB 0
+NH:     DB 0
+NL:     DB 3
+C2H:    DB 0
+C2L:    DB 0
+SMH:    DB 0
+SML:    DB 0
+MASC:   DB 128
+UM:     DB 1
+
+org 0
+    LDA NB
+    NOT
+    ADD UM
+    STA C2B
+    LDA NB
+    OR MASC
+    STA SMB
+
+    LDA NL
+    NOT
+    ADD UM
+    STA C2L
+    JC VAI_UM
+    LDA NH
+    NOT
+    STA C2H
+    JMP SINAL
+VAI_UM:
+    LDA NH
+    NOT
+    ADD UM
+    STA C2H
+SINAL:
+    LDA NH
+    OR MASC
+    STA SMH
+    LDA NL
+    STA SML
+    HLT

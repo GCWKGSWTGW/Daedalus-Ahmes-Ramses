@@ -1,0 +1,19 @@
+org 128
+N1:  DB 4
+N2:  DB 3
+RES: DB 0
+UM:  DB 1
+
+org 0
+    LDA N2
+    JZ FIM
+LACO:
+    LDA RES
+    ADD N1
+    STA RES
+    LDA N2
+    SUB UM
+    STA N2
+    JNZ LACO
+FIM:
+    HLT

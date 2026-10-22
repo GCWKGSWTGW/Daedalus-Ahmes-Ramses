@@ -1,0 +1,28 @@
+org 0
+INICIO:
+    LDR A #5
+    LDR B #6
+    LDR X #7
+    JSR ZERA_A
+    JSR ZERA_B
+    JSR ZERA_X
+    LDR A #5
+    LDR B #6
+    LDR X #7
+    JSR ZERA_TUDO
+    HLT
+
+ZERA_A:    DB 0
+    LDR A #0
+    JMP ZERA_A,I
+ZERA_B:    DB 0
+    LDR B #0
+    JMP ZERA_B,I
+ZERA_X:    DB 0
+    LDR X #0
+    JMP ZERA_X,I
+ZERA_TUDO: DB 0
+    LDR A #0
+    LDR B #0
+    LDR X #0
+    JMP ZERA_TUDO,I

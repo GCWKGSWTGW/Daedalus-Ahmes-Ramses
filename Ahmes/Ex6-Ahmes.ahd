@@ -1,0 +1,48 @@
+org 128
+NOME:
+    DB 71
+    DB 65
+    DB 66
+    DB 82
+    DB 73
+    DB 69
+    DB 76
+    DB 32
+    DB 67
+    DB 65
+    DB 66
+    DB 82
+    DB 65
+    DB 76
+    DB 32
+    DB 87
+    DB 65
+    DB 76
+    DB 76
+    DB 69
+    DB 78
+    DB 68
+    DB 90
+    DB 85
+    DB 0
+POS: DB 200
+UM:  DB 1
+
+org 0
+    LDA POS
+    STA DST
+LACO:
+    DB 32            ; opcode de LDA
+SRC: DB 128          ; endereço de NOME
+    JZ FIM
+    DB 16            ; opcode de STA
+DST: DB 0
+    LDA SRC
+    ADD UM
+    STA SRC
+    LDA DST
+    ADD UM
+    STA DST
+    JMP LACO
+FIM:
+    HLT

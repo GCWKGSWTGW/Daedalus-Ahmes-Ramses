@@ -1,0 +1,22 @@
+org 128
+VA:    DB 3
+VB:    DB 5
+VC:    DB 14
+MAIOR: DB 0
+
+org 0
+    LDA VA
+    STA MAIOR
+    LDA VB
+    SUB MAIOR
+    JN TESTA_C
+    LDA VB
+    STA MAIOR
+TESTA_C:
+    LDA VC
+    SUB MAIOR
+    JN FIM
+    LDA VC
+    STA MAIOR
+FIM:
+    HLT

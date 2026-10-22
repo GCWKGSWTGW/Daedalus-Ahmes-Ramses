@@ -1,0 +1,52 @@
+org 128
+N1:   DB 200
+N2:   DB 100
+S8:   DB 0
+OV8:  DB 0
+AH:   DB 2
+AL:   DB 200
+BH:   DB 1
+BL:   DB 100
+SH:   DB 0
+SL:   DB 0
+OV16: DB 0
+ZERO: DB 0
+UM:   DB 1
+FFH:  DB 255
+
+org 0
+    LDA N1
+    ADD N2
+    STA S8
+    JC OVER8
+    LDA ZERO
+    STA OV8
+    JMP SOMA16
+OVER8:
+    LDA FFH
+    STA OV8
+SOMA16:
+    LDA AL
+    ADD BL
+    STA SL
+    JC VAI_UM
+    LDA AH
+    ADD BH
+    STA SH
+    JC OVER16
+    JMP OK16
+VAI_UM:
+    LDA AH
+    ADD BH
+    JC OVER16
+    ADD UM
+    STA SH
+    JC OVER16
+OK16:
+    LDA ZERO
+    STA OV16
+    HLT
+OVER16:
+    LDA FFH
+    STA OV16
+    HLT

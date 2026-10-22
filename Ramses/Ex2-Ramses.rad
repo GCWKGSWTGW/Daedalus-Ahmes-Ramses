@@ -1,0 +1,49 @@
+org 128
+N1:   DB 200
+N2:   DB 100
+S8:   DB 0
+OV8:  DB 0
+AH:   DB 2
+AL:   DB 200
+BH:   DB 1
+BL:   DB 100
+SH:   DB 0
+SL:   DB 0
+OV16: DB 0
+
+org 0
+    LDR A N1
+    ADD A N2
+    STR A S8
+    JC OVER8
+    LDR A #0
+    STR A OV8
+    JMP SOMA16
+OVER8:
+    LDR A #255
+    STR A OV8
+SOMA16:
+    LDR A AL
+    ADD A BL
+    STR A SL
+    JC VAI_UM
+    LDR A AH
+    ADD A BH
+    STR A SH
+    JC OVER16
+    JMP OK16
+VAI_UM:
+    LDR A AH
+    ADD A BH
+    JC OVER16
+    ADD A #1
+    STR A SH
+    JC OVER16
+OK16:
+    LDR A #0
+    STR A OV16
+    HLT
+OVER16:
+    LDR A #255
+    STR A OV16
+    HLT

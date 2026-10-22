@@ -1,0 +1,18 @@
+org 128
+N1:  DB 4
+N2:  DB 3
+RES: DB 0
+
+org 0
+    LDR B N2
+    JZ FIM
+    LDR A #0
+LACO:
+    ADD A N1
+    SUB B #1
+    JZ GRAVA
+    JMP LACO
+GRAVA:
+    STR A RES
+FIM:
+    HLT

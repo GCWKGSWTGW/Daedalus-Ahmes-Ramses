@@ -1,0 +1,42 @@
+org 128
+NOME:
+    DB 71
+    DB 65
+    DB 66
+    DB 82
+    DB 73
+    DB 69
+    DB 76
+    DB 32
+    DB 67
+    DB 65
+    DB 66
+    DB 82
+    DB 65
+    DB 76
+    DB 32
+    DB 87
+    DB 65
+    DB 76
+    DB 76
+    DB 69
+    DB 78
+    DB 68
+    DB 90
+    DB 85
+    DB 0
+PTR: DB 200          ; posição de destino
+
+org 0
+    LDR X #0
+LACO:
+    LDR A NOME,X
+    JZ FIM
+    STR A PTR,I
+    LDR B PTR
+    ADD B #1
+    STR B PTR
+    ADD X #1
+    JMP LACO
+FIM:
+    HLT

@@ -1,0 +1,18 @@
+Símbolo         Valor Decimal   Valor Hexadecimal
+-------         -------------   -----------------
+N1                        128                  80
+N2                        129                  81
+S8                        130                  82
+OV8                       131                  83
+AH                        132                  84
+AL                        133                  85
+BH                        134                  86
+BL                        135                  87
+SH                        136                  88
+SL                        137                  89
+OV16                      138                  8A
+OVER8                      14                   E
+SOMA16                     18                  12
+VAI_UM                     36                  24
+OK16                       48                  30
+OVER16                     53                  35
